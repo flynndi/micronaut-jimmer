@@ -1,0 +1,17 @@
+import io.micronaut.core.annotation.Introspected
+
+input UserRoleInput {
+
+    #allScalars(UserRole)
+
+}
+
+UserRoleDetailView {
+    #allScalars
+}
+
+@Introspected
+specification UserRoleSpecification {
+    eq(userId)
+    like/i(roleId)
+}

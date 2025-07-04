@@ -1,0 +1,159 @@
+micronaut:
+  server:
+    port: 8080
+  jimmer:
+    language: java
+    datasources:
+      default:
+        dialect: org.babyfish.jimmer.sql.dialect.H2Dialect
+        show-sql: true
+        pretty-sql: true
+        inline-sql-variables: true
+        trigger-type: TRANSACTION_ONLY
+        default-reference-fetch-type: SELECT
+        max-join-fetch-depth: 3
+        default-dissociation-action-checkable: true
+        id-only-target-checking-level: NONE
+        default-enum-strategy: NAME
+        default-batch-size: 128
+        in-list-padding-enabled: false
+        expanded-in-list-padding-enabled: false
+        default-list-batch-size: 16
+        offset-optimizing-threshold: 2147483647
+        reverse-sort-optimization-enabled: true
+        is-foreign-key-enabled-by-default: true
+        max-command-join-count: 2
+        mutation-transaction-required: false
+        explicit-batch-enabled: false
+        dumb-batch-acceptable: false
+        constraint-violation-translatable: true
+        database-validation-mode: NONE
+      DB2:
+        dialect: org.babyfish.jimmer.sql.dialect.H2Dialect
+        show-sql: true
+        pretty-sql: true
+        inline-sql-variables: true
+        trigger-type: TRANSACTION_ONLY
+        default-reference-fetch-type: SELECT
+        max-join-fetch-depth: 3
+        default-dissociation-action-checkable: true
+        id-only-target-checking-level: NONE
+        default-enum-strategy: NAME
+        default-batch-size: 128
+        in-list-padding-enabled: false
+        expanded-in-list-padding-enabled: false
+        default-list-batch-size: 16
+        offset-optimizing-threshold: 2147483647
+        reverse-sort-optimization-enabled: true
+        is-foreign-key-enabled-by-default: true
+        max-command-join-count: 2
+        mutation-transaction-required: false
+        explicit-batch-enabled: false
+        dumb-batch-acceptable: false
+        constraint-violation-translatable: true
+        database-validation-mode: NONE
+    errorTranslator:
+      disabled: false
+      debug-info-supported: true
+    client:
+      ts:
+        path: /Code/ts.zip
+      openapi:
+        path: /openapi.yml
+        ui-path: /openapi.html
+        properties:
+          info:
+            title: Jimmer REST Example(Java)
+            description: This is the OpenAPI UI of Micronaut-Jimmer REST Example (Java)
+            version: 0.0.1.CR1
+          securities:
+            - tenantHeader: [ 1 ]
+            - OAuth2: [ 2 ]
+          components:
+            securitySchemes:
+              tenantHeader:
+                type: apiKey
+                name: tenant
+                in: HEADER
+              OAuth2:
+                type: oauth2
+                flows:
+                  authorizationCode:
+                    authorizationUrl: https://example.com/oauth/authorize
+                    tokenUrl: https://example.com/oauth/token
+                    scopes:
+                      read: Grants read access
+                      write: Grants write access
+                      admin: Grants access to admin operations
+                  password:
+                    tokenUrl: http://localhost:9000/oauth2/token
+                    scopes:
+                      address: address
+                      openid: openid
+                      message: message.read
+                      groups: groups
+                      perms: perms
+                      client: client.create
+          servers:
+            - url: http://${micronaut.jimmer.client.openapi.properties.servers[0].variables.username.defaultValue}:${micronaut.jimmer.client.openapi.properties.servers[0].variables.port.defaultValue}
+              description: The production API server
+              variables:
+                username:
+                  # note! no enum here means it is an open value
+                  defaultValue: localhost
+                  description: this value is assigned by the service provider, in this example `gigantic-server.com`
+                port:
+                  enums:
+                    - '1010'
+                    - '443'
+                  defaultValue: '1010'
+                basePath:
+                  # open meaning there is the opportunity to use special base paths as assigned by the provider, default is `v2`
+                  defaultValue: v2
+
+datasources:
+  default:
+    dialect: H2
+    schema-generate: CREATE_DROP
+    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    driver-class-name: org.h2.Driver
+  DB2:
+    dialect: H2
+    schema-generate: CREATE_DROP
+    url: jdbc:h2:mem:devDb2;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    driver-class-name: org.h2.Driver
+
+redis:
+  uri: redis://127.0.0.1:6379
+  timeout: 10s
+
+redisson:
+  single-server-config:
+    address: redis://127.0.0.1:6379
+#    password: password
+    database: 0
+    idleConnectionTimeout: 10000
+    connectTimeout: 10000
+    timeout: 3000
+    retryAttempts: 3
+    retryInterval: 1500
+    subscriptionsPerConnection: 1
+    clientName: null
+    subscriptionConnectionMinimumIdleSize: 1
+    connectionMinimumIdleSize: 2
+  threads: 2
+  netty-threads: 4
+
+graphql:
+  enabled: true
+  graphiql:
+    enabled: true
+#  graphql-ws:
+#    enabled: true
+#    path: /graphql-ws
+#    connection-init-wait-timeout: 5s
+
+jackson:
+  serialization-inclusion: always

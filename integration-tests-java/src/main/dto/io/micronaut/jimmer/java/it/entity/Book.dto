@@ -1,0 +1,36 @@
+import io.micronaut.core.annotation.Introspected
+
+BookDetailView {
+    #allScalars
+    store {
+            #allScalars
+        }
+    authors {
+            #allScalars
+        }
+}
+
+input BookInput {
+
+    #allScalars(this,TenantAware)
+
+    id(store)
+
+    authors {
+        #allScalars(Author)
+        -id
+    }
+}
+
+@Introspected
+specification BookSpecification {
+    like/i(name)
+    ge(price) as minPrice
+    le(price) as maxPrice
+    flat(store) {
+        like/i(name) as storeName
+    }
+    flat(authors) {
+        like/i(firstName, lastName) as authorName
+    }
+}

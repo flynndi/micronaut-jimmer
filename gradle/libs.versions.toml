@@ -1,0 +1,60 @@
+[versions]
+micronaut = "4.8.2"
+jimmer = "0.9.88"
+micronautGradlePlugin = "4.5.3"
+h2 = "2.1.212"
+springboot = "3.5.0"
+springDependencyManagement = "1.1.7"
+ksp = "2.1.20-1.0.31"
+redissonMicronaut = "3.38.0"
+graphqlJavaExtendedScalars = "21.0"
+asm = "9.8"
+javaDecompilerEngine = "251.25410.129"
+micronautSourcegenBytecodeWriter = "1.8.2"
+micronautSourcegenModel = "1.8.2"
+kotlinpoet = "2.0.0"
+kotlinpoetJavapoet = "2.0.0"
+
+[libraries]
+micronaut = { group = "io.micronaut.platform", name = "micronaut-platform", version.ref = "micronaut" }
+micronaut-inject-java = { group = "io.micronaut", name = "micronaut-inject-java", version.ref = "micronaut" }
+jimmer-sql = { group = "org.babyfish.jimmer", name = "jimmer-sql", version.ref = "jimmer" }
+jimmer-sql-kotlin = { group = "org.babyfish.jimmer", name = "jimmer-sql-kotlin", version.ref = "jimmer" }
+jimmer-client = { group = "org.babyfish.jimmer", name = "jimmer-client", version.ref = "jimmer" }
+jimmer-client-swagger = { group = "org.babyfish.jimmer", name = "jimmer-client-swagger", version.ref = "jimmer" }
+jimmer-apt = { group = "org.babyfish.jimmer", name = "jimmer-apt", version.ref = "jimmer" }
+jimmer-ksp = { group = "org.babyfish.jimmer", name = "jimmer-ksp", version.ref = "jimmer" }
+h2 = { group = "com.h2database", name = "h2", version.ref = "h2" }
+spring-boot-starter = { group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "springboot" }
+jimmer-spring-boot-starter = { group = "org.babyfish.jimmer", name = "jimmer-spring-boot-starter", version.ref = "jimmer" }
+snakeyaml = { group = "org.yaml", name = "snakeyaml" }
+micronaut-jdbc-hikari = { group = "io.micronaut.sql", name = "micronaut-jdbc-hikari" }
+micronaut-data-model = { group = "io.micronaut.data", name = "micronaut-data-model" }
+micronaut-redis-lettuce = { group = "io.micronaut.redis", name = "micronaut-redis-lettuce" }
+micronaut-cache-caffeine = { group = "io.micronaut.cache", name = "micronaut-cache-caffeine" }
+redisson-micronaut = { group = "org.redisson", name = "redisson-micronaut-40", version.ref = "redissonMicronaut" }
+micronaut-graphql = { group = "io.micronaut.graphql", name = "micronaut-graphql" }
+graphql-java-extended-scalars = { group = "com.graphql-java", name = "graphql-java-extended-scalars", version.ref = "graphqlJavaExtendedScalars" }
+logback-classic = { group = "ch.qos.logback", name = "logback-classic" }
+micronaut-test-rest-assured = { group = "io.micronaut.test", name = "micronaut-test-rest-assured" }
+micronaut-data-connection = { group = "io.micronaut.data", name = "micronaut-data-connection" }
+micronaut-data-tx-jdbc = { group = "io.micronaut.data", name = "micronaut-data-tx-jdbc" }
+micronaut-jackson-databind = { group = "io.micronaut", name = "micronaut-jackson-databind" }
+micronaut-http-client = { group = "io.micronaut", name = "micronaut-http-client" }
+micronaut-test-junit5 = { group = "io.micronaut.test", name = "micronaut-test-junit5" }
+micronaut-sourcegen-generator = { group = "io.micronaut.sourcegen", name = "micronaut-sourcegen-generator" }
+asm = { group = "org.ow2.asm", name = "asm", version.ref = "asm" }
+asm-util = { group = "org.ow2.asm", name = "asm-util", version.ref = "asm" }
+java-decompiler-engine = { group = "com.jetbrains.intellij.java", name = "java-decompiler-engine", version.ref = "javaDecompilerEngine" }
+micronaut-sourcegen-bytecode-writer = { group = "io.micronaut.sourcegen", name = "micronaut-sourcegen-bytecode-writer", version.ref = "micronautSourcegenBytecodeWriter" }
+micronaut-sourcegen-model = { group = "io.micronaut.sourcegen", name = "micronaut-sourcegen-model", version.ref = "micronautSourcegenModel" }
+kotlinpoet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlinpoet" }
+kotlinpoet-javapoet = { group = "com.squareup", name = "kotlinpoet-javapoet", version.ref = "kotlinpoetJavapoet" }
+
+[plugins]
+micronaut-application = { id = "io.micronaut.application", version.ref = "micronautGradlePlugin" }
+micronaut-minimal-application = { id = "io.micronaut.minimal.application", version.ref = "micronautGradlePlugin" }
+micronaut-aot = { id = "io.micronaut.aot", version.ref = "micronautGradlePlugin" }
+spring-boot = { id = "org.springframework.boot", version.ref = "springboot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
