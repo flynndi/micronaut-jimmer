@@ -1,22 +1,18 @@
-## Micronaut 4.8.2 Documentation
+## Micronaut Jimmer
 
-- [User Guide](https://docs.micronaut.io/4.8.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.8.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.8.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
-
----
-
-- [Shadow Gradle Plugin](https://gradleup.com/shadow/)
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-
-## Feature micronaut-aot documentation
-
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
-
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
+# Quick Start
+## Dependency
+Gradle Java Project
+```kotlin
+implementation("io.github.flynndi:micronaut-jimmer:0.0.1.CR1")
+annotationProcessor("org.babyfish.jimmer:jimmer-apt:0.9.88")
+annotationProcessor("io.github.flynndi:micronaut-jimmer-repository-processor:0.0.1.CR1")
+annotationProcessor("io.github.flynndi:micronaut-jimmer-repository-sourcegen-generator-java:0.0.1.CR1")
+```
+Gradle Kotlin Project
+```kotlin
+implementation("io.github.flynndi:micronaut-jimmer:0.0.1.CR1")
+ksp("org.babyfish.jimmer:jimmer-ksp:0.9.88")
+ksp("io.github.flynndi:micronaut-jimmer-repository-processor:0.0.1.CR1")
+ksp("io.github.flynndi:micronaut-jimmer-repository-sourcegen-generator-kotlin:0.0.1.CR1")
+```
