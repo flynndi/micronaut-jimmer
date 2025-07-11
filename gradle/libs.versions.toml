@@ -1,6 +1,6 @@
 [versions]
 micronaut = "4.8.2"
-jimmer = "0.9.94"
+jimmer = "0.9.96"
 micronautGradlePlugin = "4.5.3"
 h2 = "2.1.212"
 springboot = "3.5.0"

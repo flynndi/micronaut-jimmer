@@ -13,6 +13,7 @@ import java.util.*;
 import org.babyfish.jimmer.meta.ImmutableProp;
 import org.babyfish.jimmer.meta.ImmutableType;
 import org.babyfish.jimmer.sql.cache.CacheTracker;
+import org.babyfish.jimmer.sql.cache.RemoteKeyPrefixProvider;
 import org.babyfish.jimmer.sql.cache.spi.AbstractRemoteValueBinder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -26,10 +27,11 @@ public class RedisValueBinder<K, V> extends AbstractRemoteValueBinder<K, V> {
             @Nullable ImmutableProp prop,
             @Nullable CacheTracker tracker,
             @Nullable ObjectMapper objectMapper,
+            @Nullable RemoteKeyPrefixProvider keyPrefixProvider,
             Duration duration,
             int randomPercent,
             @NotNull RedisClient redisClient) {
-        super(type, prop, tracker, objectMapper, duration, randomPercent);
+        super(type, prop, tracker, objectMapper, keyPrefixProvider, duration, randomPercent);
         StatefulRedisConnection<String, byte[]> connect =
                 redisClient.connect(RedisCodec.of(StringCodec.UTF8, ByteArrayCodec.INSTANCE));
         commands = connect.sync();
@@ -102,7 +104,14 @@ public class RedisValueBinder<K, V> extends AbstractRemoteValueBinder<K, V> {
                 throw new IllegalStateException("redisClient has not been specified");
             }
             return new RedisValueBinder<>(
-                    type, prop, tracker, objectMapper, duration, randomPercent, redisClient);
+                    type,
+                    prop,
+                    tracker,
+                    objectMapper,
+                    keyPrefixProvider,
+                    duration,
+                    randomPercent,
+                    redisClient);
         }
     }
 }
