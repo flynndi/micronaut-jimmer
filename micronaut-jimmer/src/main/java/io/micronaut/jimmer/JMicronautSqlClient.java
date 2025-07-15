@@ -222,7 +222,7 @@ class JMicronautSqlClient extends JLazyInitializationSqlClient {
         }
 
         if (null != this.block) {
-            block.accept(builder);
+            this.block.accept(builder);
         }
         if (null != block) {
             block.accept(builder);
