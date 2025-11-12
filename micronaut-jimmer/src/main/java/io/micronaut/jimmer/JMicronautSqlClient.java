@@ -172,6 +172,8 @@ class JMicronautSqlClient extends JLazyInitializationSqlClient {
         builder.setDefaultListBatchSize(runtimeConfig.getDefaultListBatchSize());
         builder.setInListPaddingEnabled(runtimeConfig.isInListPaddingEnabled());
         builder.setExpandedInListPaddingEnabled(runtimeConfig.isExpandedInListPaddingEnabled());
+        builder.setDissociationLogicalDeleteEnabled(
+                runtimeConfig.isDissociationLogicalDeleteEnabled());
         builder.setOffsetOptimizingThreshold(runtimeConfig.getOffsetOptimizingThreshold());
         builder.setReverseSortOptimizationEnabled(runtimeConfig.isReverseSortOptimizationEnabled());
         builder.setForeignKeyEnabledByDefault(runtimeConfig.isForeignKeyEnabledByDefault());

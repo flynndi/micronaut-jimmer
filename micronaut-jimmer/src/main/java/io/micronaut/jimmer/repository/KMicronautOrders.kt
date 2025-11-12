@@ -1,7 +1,7 @@
 package io.micronaut.jimmer.repository
 
 import io.micronaut.data.model.Sort
-import org.babyfish.jimmer.sql.ast.query.NullOrderMode
+import org.babyfish.jimmer.meta.NullOrderMode
 import org.babyfish.jimmer.sql.ast.query.OrderMode
 import org.babyfish.jimmer.sql.kt.ast.expression.KPropExpression
 import org.babyfish.jimmer.sql.kt.ast.expression.asc

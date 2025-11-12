@@ -51,6 +51,8 @@ public class JimmerDataSourceRuntimeConfig implements Named {
 
     private boolean expandedInListPaddingEnabled;
 
+    private boolean dissociationLogicalDeleteEnabled;
+
     private int offsetOptimizingThreshold = Integer.MAX_VALUE;
 
     private boolean reverseSortOptimizationEnabled;
@@ -213,6 +215,14 @@ public class JimmerDataSourceRuntimeConfig implements Named {
 
     public void setExpandedInListPaddingEnabled(boolean expandedInListPaddingEnabled) {
         this.expandedInListPaddingEnabled = expandedInListPaddingEnabled;
+    }
+
+    public boolean isDissociationLogicalDeleteEnabled() {
+        return dissociationLogicalDeleteEnabled;
+    }
+
+    public void setDissociationLogicalDeleteEnabled(boolean dissociationLogicalDeleteEnabled) {
+        this.dissociationLogicalDeleteEnabled = dissociationLogicalDeleteEnabled;
     }
 
     public int getOffsetOptimizingThreshold() {
